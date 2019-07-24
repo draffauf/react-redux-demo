@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { INCREMENT, DECREMENT, RESET } from './actions';
+import { increment, decrement, reset } from './actions';
 
 class Counter extends React.Component {
   increment = () => {
-    this.props.dispatch({ type: INCREMENT });
+    this.props.dispatch(increment());
   };
   
   decrement = () => {
-    this.props.dispatch({ type: DECREMENT });
+    this.props.dispatch(decrement());
   };
 
   reset = () => {
-    this.props.dispatch({ type: RESET });
+    this.props.dispatch(reset());
   };
 
   render() {
