@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Counter from './Counter';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 const initialState = {
   count: 0
@@ -29,26 +30,11 @@ function reducer(state = initialState, action) {
 }
 
 const store = createStore(reducer);
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "DECREMENT" });
-store.dispatch({ type: "RESET" });
-
-// const initialState = {
-//   count: 0
-// };
-
-// function reducer(state = initialState, action) {
-//   console.log('reducer', state, action);
-//   return state;
-// }
-
-// const store = createStore();
 
 const App = () => (
-  <div>
+  <Provider store={store}>
     <Counter/>
-  </div>
+  </Provider>
 );
 
 export default App;
