@@ -4,15 +4,15 @@ import { increment, decrement, reset } from './actions';
 
 class Counter extends React.Component {
   increment = () => {
-    this.props.dispatch(increment());
+    this.props.increment();
   };
   
   decrement = () => {
-    this.props.dispatch(decrement());
+    this.props.decrement();
   };
 
   reset = () => {
-    this.props.dispatch(reset());
+    this.props.reset();
   };
 
   render() {
@@ -36,6 +36,15 @@ function mapStateToProps(state) {
   };
 }
 
+// in this object, keys become prop names,
+// and values should be action creator functions.
+// They get bound to `dispatch`. 
+const mapDispatchToProps = {
+  increment,
+  decrement,
+  reset,
+};
+
 // First, map the store state to props
 // Second, return a function that takes Counter
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
